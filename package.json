@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "tsc && node ejercicio-clase1.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "federico tanco",
@@ -11,5 +12,8 @@
   "devDependencies": {
     "tslint": "^5.12.1",
     "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "core-js": "^3.31.1"
   }
 }
