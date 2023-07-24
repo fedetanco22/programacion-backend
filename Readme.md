@@ -1,5 +1,8 @@
 # Programacion Backend
 
-1- ejercicio 1
-desafio entregable
-productManager.js (run node productManager.js)
+#### CLone repo and "run node productManager.js"
+
+1- ProductManager \* desafio entregable - productManager.js (run node productManager.js)
+
+2- ProductManager with filesystem
+
