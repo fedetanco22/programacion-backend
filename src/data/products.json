@@ -1,0 +1,18 @@
+[
+	{
+		"title": "Mesa 4",
+		"price": 12.45,
+		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+		"code": "M89",
+		"stock": 10,
+		"id": 1
+	},
+	{
+		"title": "Mesa 67",
+		"price": 12,
+		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+		"code": "M84",
+		"stock": 10,
+		"id": 2
+	}
+]
