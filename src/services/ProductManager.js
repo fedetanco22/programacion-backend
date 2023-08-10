@@ -48,7 +48,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductManager = void 0;
-var fs = require('fs');
+var fs = require("fs");
+var uuid_1 = require("uuid");
 var ProductManager = /** @class */ (function () {
     function ProductManager(path) {
         this.path = path;
@@ -62,36 +63,39 @@ var ProductManager = /** @class */ (function () {
         return 1;
     };
     ProductManager.prototype.addProduct = function (product) {
-        var _a, _b, _c, _d, _e;
+        var _a, _b, _c, _d, _e, _f, _g, _h;
         return __awaiter(this, void 0, void 0, function () {
             var products, newProduct, productExists, error_1;
-            return __generator(this, function (_f) {
-                switch (_f.label) {
+            return __generator(this, function (_j) {
+                switch (_j.label) {
                     case 0: return [4 /*yield*/, this.getProducts()];
                     case 1:
-                        products = _f.sent();
+                        products = _j.sent();
                         newProduct = {
-                            id: this.getProductId(products),
+                            id: (0, uuid_1.v4)(),
                             title: (_a = product.title) !== null && _a !== void 0 ? _a : 'No title',
-                            price: (_b = product.price) !== null && _b !== void 0 ? _b : 0,
-                            thumbnail: (_c = product.thumbnail) !== null && _c !== void 0 ? _c : 'No thumbnail',
-                            code: (_d = product.code) !== null && _d !== void 0 ? _d : 'No code',
-                            stock: (_e = product.stock) !== null && _e !== void 0 ? _e : 0,
+                            description: (_b = product.description) !== null && _b !== void 0 ? _b : 'No description',
+                            price: (_c = product.price) !== null && _c !== void 0 ? _c : 0,
+                            thumbnail: (_d = product.thumbnail) !== null && _d !== void 0 ? _d : 'No thumbnail',
+                            code: (_e = product.code) !== null && _e !== void 0 ? _e : 'No code',
+                            stock: (_f = product.stock) !== null && _f !== void 0 ? _f : 0,
+                            status: (_g = product.status) !== null && _g !== void 0 ? _g : 'No status',
+                            category: (_h = product.category) !== null && _h !== void 0 ? _h : 'No category',
                         };
                         productExists = products.some(function (p) { return p.code === newProduct.code; });
                         if (productExists) {
                             throw new Error('Product already exists.');
                         }
                         products.push(newProduct);
-                        _f.label = 2;
+                        _j.label = 2;
                     case 2:
-                        _f.trys.push([2, 4, , 5]);
+                        _j.trys.push([2, 4, , 5]);
                         return [4 /*yield*/, fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'))];
                     case 3:
-                        _f.sent();
+                        _j.sent();
                         return [3 /*break*/, 5];
                     case 4:
-                        error_1 = _f.sent();
+                        error_1 = _j.sent();
                         console.log('Error when saving the file. Make', error_1);
                         return [3 /*break*/, 5];
                     case 5: return [2 /*return*/];

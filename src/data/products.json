@@ -1,82 +1,24 @@
 [
 	{
-		"title": "Mesa",
-		"price": 12.45,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "M89",
-		"stock": 10,
-		"id": 1
+		"id": "aefdd891-31e4-414a-8675-194ab3775564",
+		"title": "Title prueba",
+		"description": "hola description",
+		"price": 134,
+		"thumbnail": "No thumbnail",
+		"code": "9",
+		"stock": 0,
+		"status": "success",
+		"category": "category"
 	},
 	{
-		"title": "Tableta",
-		"price": 12,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "T1",
-		"stock": 10,
-		"id": 2
-	},
-	{
-		"title": "Mouse 7",
-		"price": 12.45,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "M7",
-		"stock": 10,
-		"id": 3
-	},
-	{
-		"title": "Rodillo",
-		"price": 12,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "R90",
-		"stock": 10,
-		"id": 4
-	},
-	{
-		"title": "Mesa 4",
-		"price": 12.45,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "M4",
-		"stock": 10,
-		"id": 5
-	},
-	{
-		"title": "Fibron 90",
-		"price": 199.99,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "F90",
-		"stock": 10,
-		"id": 6
-	},
-	{
-		"title": "Lapiz 2B",
-		"price": 12.45,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "LS2",
-		"stock": 10,
-		"id": 7
-	},
-	{
-		"title": "Monitor 1",
-		"price": 12,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "MN1",
-		"stock": 3,
-		"id": 8
-	},
-	{
-		"title": "Notebook",
-		"price": 12.45,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "N1",
-		"stock": 19,
-		"id": 9
-	},
-	{
-		"title": "Abrochadora 67",
-		"price": 12,
-		"thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-		"code": "AB4",
-		"stock": 10,
-		"id": 10
+		"id": "002f5c1b-8108-4bea-803c-2441449131f6",
+		"title": "Mesa 3",
+		"description": "Prod nuevo MN7",
+		"price": 134.9,
+		"thumbnail": "No thumbnail",
+		"code": "MN7",
+		"stock": 90,
+		"status": "success",
+		"category": "category"
 	}
 ]

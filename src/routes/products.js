@@ -36,13 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require("express");
-var ProductManager_1 = require("./src/services/ProductManager");
-var app = express();
+var express_1 = require("express");
+var ProductManager_1 = require("../services/ProductManager");
+var router = (0, express_1.Router)();
 var productManager = new ProductManager_1.ProductManager('./src/data/products.json');
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var products, limit, limitedProducts;
     var _a, _b;
     return __generator(this, function (_c) {
@@ -60,44 +58,19 @@ app.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, func
                         res.send(products);
                     }
                     catch (error) {
-                        res.status(404).send('Product not found.');
+                        res.status(404).send('Products not found.');
                     }
                 }
                 return [2 /*return*/];
         }
     });
 }); });
-app.get('/products', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var products, limit, limitedProducts;
-    var _a, _b;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
-            case 0: return [4 /*yield*/, productManager.getProducts()];
-            case 1:
-                products = _c.sent();
-                limit = parseInt((_b = (_a = req.query.limit) === null || _a === void 0 ? void 0 : _a.toString()) !== null && _b !== void 0 ? _b : '0');
-                if (limit && limit > 0 && limit <= products.length - 1) {
-                    limitedProducts = products.slice(0, parseInt(limit.toString()));
-                    res.send(limitedProducts);
-                }
-                else {
-                    try {
-                        res.send(products);
-                    }
-                    catch (error) {
-                        res.status(404).send('Product not found.');
-                    }
-                }
-                return [2 /*return*/];
-        }
-    });
-}); });
-app.get('/products/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/:pid', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var id, product;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                id = parseInt(req.params.id);
+                id = req.params.pid;
                 return [4 /*yield*/, productManager.getProductById(id)];
             case 1:
                 product = _a.sent();
@@ -111,7 +84,21 @@ app.get('/products/:id', function (req, res) { return __awaiter(void 0, void 0, 
         }
     });
 }); });
-var PORT = process.env.PORT || 8080;
-app.listen(PORT, function () {
-    console.log("Server listening on port ".concat(PORT));
-});
+router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var product;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, productManager.addProduct(req.body)];
+            case 1:
+                product = _a.sent();
+                try {
+                    res.send(product);
+                }
+                catch (error) {
+                    res.status(404).send('Error when creating the product.');
+                }
+                return [2 /*return*/];
+        }
+    });
+}); });
+exports.default = router;
