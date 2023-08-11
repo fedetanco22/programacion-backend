@@ -4,7 +4,6 @@ import { CartManager } from '../../services/cart-manager/CartManager';
 const router = Router();
 const cartManager = new CartManager('./src/data/carts.json');
 
-// create a cart
 router.post('/', async (req: Request, res: Response): Promise<void> => {
     try {
         const cart = await cartManager.createCart();
@@ -14,7 +13,6 @@ router.post('/', async (req: Request, res: Response): Promise<void> => {
     }
 });
 
-//  get all carts
 router.get('/', async (req: Request, res: Response): Promise<void> => {
     try {
         const carts = await cartManager.getCarts();
@@ -42,7 +40,7 @@ router.post('/:cid/product/:pid', async (req: Request, res: Response): Promise<v
         await cartManager.addProductToCart(pid, product, cid);
         res.send('Product added to cart.');
     } catch (error) {
-        res.status(404).send('Product not found.');
+        res.status(404).send('Product or cart not found.');
     }
 });
 

@@ -122,9 +122,6 @@ var CartManager = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.getCarts()];
                     case 1:
                         carts = _a.sent();
-                        if (carts.length === 0) {
-                            this.createCart();
-                        }
                         cartIndex = carts.findIndex(function (cart) { return cart.id === cid; });
                         if (cartIndex === -1) {
                             throw new custom_errors_1.AppErrors('Cart not found.');
