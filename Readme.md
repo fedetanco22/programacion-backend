@@ -1,8 +1,9 @@
 # Programacion Backend
 
-#### CLone repo and "run node productManager.js"
+### Clone repo and
 
-1- ProductManager \* desafio entregable - productManager.js (run node productManager.js)
+-   "run npm start"
 
-2- ProductManager with filesystem
+or
 
+-   "tsc && npm start"
