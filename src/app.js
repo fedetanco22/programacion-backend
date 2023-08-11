@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// import express from 'express';
 var express = require('express');
-var products_1 = require("./routes/products");
-var carts_1 = require("./routes/carts");
+var products_1 = require("./routes/products/products");
+var carts_1 = require("./routes/cart/carts");
 var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

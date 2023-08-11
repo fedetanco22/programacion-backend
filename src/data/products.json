@@ -1,17 +1,6 @@
 [
 	{
-		"id": "aefdd891-31e4-414a-8675-194ab3775564",
-		"title": "Title prueba",
-		"description": "hola description",
-		"price": 134,
-		"thumbnail": "No thumbnail",
-		"code": "9",
-		"stock": 0,
-		"status": "success",
-		"category": "category"
-	},
-	{
-		"id": "002f5c1b-8108-4bea-803c-2441449131f6",
+		"id": "ccf5cc7d-b0ec-4542-ad88-9fe261fdb013",
 		"title": "Mesa 3",
 		"description": "Prod nuevo MN7",
 		"price": 134.9,
@@ -20,5 +9,66 @@
 		"stock": 90,
 		"status": "success",
 		"category": "category"
+	},
+	{
+		"id": "66c14440-ebec-45a3-ba7c-73a0968fc8c3",
+		"title": "Mesa 45",
+		"description": "Prod nuevo M45",
+		"price": 1900,
+		"thumbnail": "No thumbnail",
+		"code": "M45",
+		"stock": 90,
+		"status": "success",
+		"category": "mesas"
+	},
+	{
+		"id": "c5c20592-3497-4cd2-8401-8c77806dfe4b",
+		"title": "Mesa 89",
+		"description": "Prod nuevo M89",
+		"price": 1900,
+		"thumbnail": "No thumbnail",
+		"code": "M89",
+		"stock": 12,
+		"status": "success",
+		"category": "mesas"
+	},
+	{
+		"id": "d7901cdc-41b8-4f41-a15c-4fdd450cb1ad",
+		"title": "Table 89",
+		"description": "Prod nuevo T69",
+		"price": 1900,
+		"thumbnail": [
+			"No thumbnail"
+		],
+		"code": "T67",
+		"stock": 12,
+		"status": "success",
+		"category": "mesas"
+	},
+	{
+		"id": "6aacfb39-9836-42cb-8721-3fc231636f3d",
+		"title": "Table 6",
+		"description": "Prod nuevo T6",
+		"price": 1900,
+		"thumbnail": [
+			"No thumbnail"
+		],
+		"code": "T6",
+		"stock": 12,
+		"status": "success",
+		"category": "mesas"
+	},
+	{
+		"id": "233d45ac-cb56-41a1-a059-a4ff0538a97e",
+		"title": "Pencil",
+		"description": "Prod nuevo P16",
+		"price": 12,
+		"thumbnail": [
+			"https://picsum.photos/40"
+		],
+		"code": "P16",
+		"stock": 1,
+		"status": "success",
+		"category": "mesas"
 	}
 ]

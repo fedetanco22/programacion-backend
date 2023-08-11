@@ -37,15 +37,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
-var ProductManager_1 = require("../services/ProductManager");
+var ProductManager_1 = require("../../services/product-manager/ProductManager");
+var custom_errors_1 = require("../../utils/custom-errors");
 var router = (0, express_1.Router)();
 var productManager = new ProductManager_1.ProductManager('./src/data/products.json');
 router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var products, limit, limitedProducts;
+    var products, limit, limitedProducts, error_1;
     var _a, _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
-            case 0: return [4 /*yield*/, productManager.getProducts()];
+            case 0:
+                _c.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, productManager.getProducts()];
             case 1:
                 products = _c.sent();
                 limit = parseInt((_b = (_a = req.query.limit) === null || _a === void 0 ? void 0 : _a.toString()) !== null && _b !== void 0 ? _b : '0');
@@ -54,50 +57,97 @@ router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
                     res.send(limitedProducts);
                 }
                 else {
-                    try {
-                        res.send(products);
-                    }
-                    catch (error) {
-                        res.status(404).send('Products not found.');
-                    }
+                    res.send(products);
                 }
-                return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _c.sent();
+                if (error_1 instanceof custom_errors_1.AppErrors) {
+                    res.status(400).send(error_1.message); // Bad Request
+                }
+                else {
+                    console.error(error_1); // Log other unexpected errors
+                    res.status(500).send('An error occurred.');
+                }
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); });
 router.get('/:pid', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var id, product;
+    var id, product, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
+                _a.trys.push([0, 2, , 3]);
                 id = req.params.pid;
                 return [4 /*yield*/, productManager.getProductById(id)];
             case 1:
                 product = _a.sent();
-                try {
-                    res.send(product);
+                res.send(product);
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                if (error_2 instanceof custom_errors_1.AppErrors) {
+                    res.status(400).send(error_2.message); // Bad Request
                 }
-                catch (error) {
+                else {
+                    console.error(error_2); // Log other unexpected errors
                     res.status(404).send('Product not found.');
                 }
-                return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); });
 router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var product;
+    var product, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, productManager.addProduct(req.body)];
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, productManager.addProduct(req.body)];
             case 1:
                 product = _a.sent();
-                try {
-                    res.send(product);
+                res.send(product);
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _a.sent();
+                if (error_3 instanceof custom_errors_1.AppErrors) {
+                    res.status(400).send(error_3.message); // Bad Request
                 }
-                catch (error) {
-                    res.status(404).send('Error when creating the product.');
+                else {
+                    console.error(error_3); // Log other unexpected errors
+                    res.status(500).send('Error when creating the product.');
                 }
-                return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
+router.delete('/:pid', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var id, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                id = req.params.pid;
+                return [4 /*yield*/, productManager.deleteProduct(id)];
+            case 1:
+                _a.sent();
+                res.send('Product deleted.');
+                return [3 /*break*/, 3];
+            case 2:
+                error_4 = _a.sent();
+                if (error_4 instanceof custom_errors_1.AppErrors) {
+                    res.status(400).send(error_4.message); // Bad Request
+                }
+                else {
+                    console.error(error_4); // Log other unexpected errors
+                    res.status(404).send('Product not found.');
+                }
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); });

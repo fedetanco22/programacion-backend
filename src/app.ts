@@ -1,7 +1,6 @@
-// import express from 'express';
 const express = require('express');
-import routerProducts from './routes/products';
-import routerCarts from './routes/carts';
+import routerProducts from './routes/products/products';
+import routerCarts from './routes/cart/carts';
 
 const app = express();
 

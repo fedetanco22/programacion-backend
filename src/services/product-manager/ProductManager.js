@@ -50,18 +50,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductManager = void 0;
 var fs = require("fs");
 var uuid_1 = require("uuid");
+var custom_errors_1 = require("../../utils/custom-errors");
+var errors = require("../../utils/error-messages");
 var ProductManager = /** @class */ (function () {
     function ProductManager(path) {
         this.path = path;
-        this.id = 0;
     }
-    ProductManager.prototype.getProductId = function (products) {
-        var usersLength = products.length;
-        if (usersLength > 0) {
-            return parseInt(products[usersLength - 1].Id) + 1;
-        }
-        return 1;
-    };
     ProductManager.prototype.addProduct = function (product) {
         var _a, _b, _c, _d, _e, _f, _g, _h;
         return __awaiter(this, void 0, void 0, function () {
@@ -76,7 +70,7 @@ var ProductManager = /** @class */ (function () {
                             title: (_a = product.title) !== null && _a !== void 0 ? _a : 'No title',
                             description: (_b = product.description) !== null && _b !== void 0 ? _b : 'No description',
                             price: (_c = product.price) !== null && _c !== void 0 ? _c : 0,
-                            thumbnail: (_d = product.thumbnail) !== null && _d !== void 0 ? _d : 'No thumbnail',
+                            thumbnail: (_d = product.thumbnail) !== null && _d !== void 0 ? _d : ['No thumbnail'],
                             code: (_e = product.code) !== null && _e !== void 0 ? _e : 'No code',
                             stock: (_f = product.stock) !== null && _f !== void 0 ? _f : 0,
                             status: (_g = product.status) !== null && _g !== void 0 ? _g : 'No status',
@@ -84,7 +78,7 @@ var ProductManager = /** @class */ (function () {
                         };
                         productExists = products.some(function (p) { return p.code === newProduct.code; });
                         if (productExists) {
-                            throw new Error('Product already exists.');
+                            throw new custom_errors_1.AppErrors('Product already exists.'); // Use the custom error
                         }
                         products.push(newProduct);
                         _j.label = 2;
@@ -96,8 +90,8 @@ var ProductManager = /** @class */ (function () {
                         return [3 /*break*/, 5];
                     case 4:
                         error_1 = _j.sent();
-                        console.log('Error when saving the file. Make', error_1);
-                        return [3 /*break*/, 5];
+                        console.error(errors.ERROR_FILE_SAVE); // Log the error message
+                        throw new Error(errors.ERROR_FILE_SAVE);
                     case 5: return [2 /*return*/];
                 }
             });
@@ -131,8 +125,10 @@ var ProductManager = /** @class */ (function () {
                     case 1:
                         products = _a.sent();
                         product = products.filter(function (p) { return p.id === id; });
-                        if (!product)
-                            throw new Error('Product not found.');
+                        if (!product || product.length === 0) {
+                            console.error(errors.ERROR_PRODUCT_NOT_FOUND); // Log the error message
+                            throw new Error(errors.ERROR_PRODUCT_NOT_FOUND);
+                        }
                         return [2 /*return*/, product];
                 }
             });
@@ -147,8 +143,10 @@ var ProductManager = /** @class */ (function () {
                     case 1:
                         products = _a.sent();
                         index = products.findIndex(function (p) { return p.id === id; });
-                        if (index === -1)
-                            throw new Error('Product not found.');
+                        if (index === -1) {
+                            console.error(errors.ERROR_PRODUCT_NOT_FOUND); // Log the error message
+                            throw new Error(errors.ERROR_PRODUCT_NOT_FOUND);
+                        }
                         products[index] = __assign(__assign({}, product), { id: id });
                         _a.label = 2;
                     case 2:
@@ -159,8 +157,8 @@ var ProductManager = /** @class */ (function () {
                         return [3 /*break*/, 5];
                     case 4:
                         error_2 = _a.sent();
-                        console.log('Error al guardar el archivo', error_2);
-                        return [3 /*break*/, 5];
+                        console.error(errors.ERROR_FILE_SAVE); // Log the error message
+                        throw new Error(errors.ERROR_FILE_SAVE);
                     case 5: return [2 /*return*/];
                 }
             });
@@ -187,8 +185,8 @@ var ProductManager = /** @class */ (function () {
                         return [3 /*break*/, 5];
                     case 4:
                         error_3 = _a.sent();
-                        console.log('Error al guardar el archivo', error_3);
-                        return [3 /*break*/, 5];
+                        console.error(errors.ERROR_FILE_SAVE); // Log the error message
+                        throw new Error(errors.ERROR_FILE_SAVE);
                     case 5: return [2 /*return*/];
                 }
             });
